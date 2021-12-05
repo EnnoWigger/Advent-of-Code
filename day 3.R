@@ -18,7 +18,7 @@ powerconsumption(day3)
 
 # Part 2 ------------------------------------------------------------------
 
-oxygen <- function(data) {
+generator <- function(data) {
   cols = length(strsplit(data[1], "")[[1]])
   datamatrix <- matrix(as.numeric(unlist(strsplit(data, ""))), ncol = cols, byrow = T)
   for(i in 1:ncol(datamatrix)) {
@@ -27,7 +27,7 @@ oxygen <- function(data) {
   datamatrix
 }
 
-CO2 <- function(data) {
+scrubber <- function(data) {
   cols = length(strsplit(data[1], "")[[1]])
   datamatrix <- matrix(as.numeric(unlist(strsplit(data, ""))), ncol = cols, byrow = T)
   #datavector <- c()
@@ -42,8 +42,8 @@ CO2 <- function(data) {
 }
 
 lifesupport <- function(data) {
-  generator <- oxygen(data)
-  scrubber <- CO2(data)
-  strtoi(paste0(generator, collapse = ""), base = 2) * strtoi(paste0(scrubber, collapse = ""), base = 2)
+  oxygen <- generator(data)
+  co2 <- scrubber(data)
+  strtoi(paste0(oxygen, collapse = ""), base = 2) * strtoi(paste0(co2, collapse = ""), base = 2)
 }
 lifesupport(day3)
