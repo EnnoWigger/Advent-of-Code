@@ -1,3 +1,5 @@
+library(tidyverse)
+
 horizontal <- c(16,1,2,0,4,2,7,1,2,14)
 horizontal <- readLines("input day 7.txt", warn = F) %>% str_split(",") %>% unlist() %>% as.integer()
 
